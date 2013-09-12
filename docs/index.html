@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>Jetpack @VERSION@</title>
+<style type="text/css">
+pre {
+	font-weight: bold;
+	font-family: monospace;
+	color: blue;
+}
+
+h3 {
+	text-decoration: underline;
+}
+
+code {
+	font-weight: bold;
+	font-family: monospace;
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h3>Table of Contents:</h3>
+
+	<ul>
+		<li><a href="#About">About</a></li>
+		<li><a href="#Streaming">Streaming JSON Data</a></li>
+		<li><a href="#Space">Representing JSON Data In Space</a></li>
+		<li><a href="#Unmarshall">Unmarshalling JSON Data</a></li>
+		<li><a href="api/index.html">Javadocs</a></li>
+		<li><a href="test/unitreport/index.html">Unit Test Report</a></li>
+	</ul>
+	<h3 id="About">About</h3>
+	<p>Jetpack is an API for marshalling and unmarhalling to JSON data.
+		With a JAR file less than 13K, Jetpack is not only the WORLD's FASTEST
+		and most flexible JSON API, it is also the most lightweight. Jetpack
+		also includes features that many other JSON APIs do not, such as:</p>
+
+	<ul>
+		<li>A five-second learning curve (it's really simple!).</li>
+		<li>Support for streaming JSON as well as creating JSON data in
+			space</li>
+		<li>Flexible mechanisms that allow the developer to control what
+			is JSON data and what is not.</li>
+		<li>100% Unit test coverage</li>
+		<li>100% Pure Java (No Native Code)</li>
+		<li>100% Self-contained (No external dependencies)</li>
+		<li>Universal character set support</li>
+		<li>Well under 1K effective lines of code</li>
+		<li>A flat heap foot print. Jetpack can stream terabytes of data
+			to JSON without even blinking.</li>
+	</ul>
+	<p>
+		Please send all feedback to <a href="mailto:open@pureperfect.com">open@pureperfect.com.</a>
+		Thank you.
+	</p>
+	<h3 id="Streaming">Streaming JSON Data</h3>
+	<p>Streaming Java&trade; objects to JSON with Jetpack is easy. All
+		you have to do is:</p>
+	<pre>
+Marshaller out = new JSONMarshaller(myOutputstream, "utf-8");
+		
+out.write(myObject);
+	</pre>
+	Jetpack determines what is/is not JSON data in your object by using a
+	<code>FieldReader</code>
+	. The default is
+	<code>AnnotationReader</code>
+	which looks at your objects methods for annotations like this:
+
+	<pre>
+public class Person {
+
+	@JSONMapped
+	public String getName() { ... };
+
+	...
+}
+	</pre>
+
+	If this does not work for you, you can have absolute control over what
+	is/is not JSON data by implementing your own
+	<code>FieldReader</code>
+	. You can also control how types (e.g. numbers, dates) get converted
+	before being serialized by implementing a
+	<code>TypeConverter</code>
+	and/or monitor/format each character using
+	<code>CharacterHandler.</code>
+
+	<h3 id="Space">Representing JSON Data In Space</h3>
+	<p>
+		Arbitrary JSON data can also be represented, read and written using
+		<code>JSONData</code>
+		and it's subtypes (e.g.
+		<code>JSONField</code>
+		,
+		<code>JSONObject</code>
+		,
+		<code>JSONArray</code>
+		).
+	</p>
+	<h3 id="Unmarshall">Unmarshalling JSON Data</h3>
+	<p>Use the JSONDataUnmarshaller in com.pureperfect.json.in.</p>
+</body>
+</html>
