@@ -21,25 +21,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.pureperfect.jetpack.FieldReader;
-import com.pureperfect.jetpack.MappedField;
-import com.pureperfect.jetpack.MarshallException;
+import com.pureperfect.jetpack.Field;
+import com.pureperfect.jetpack.SerializeException;
 
 /**
- * Checks for mapped fields on objects by looking for the {@link JSONMapped}
+ * Checks for mapped fields on objects by looking for the {@link JSON}
  * annotation on getter methods. An instance of this class will return a
- * {@link MappedField} for all of the methods in the object that meet the following
+ * {@link Field} for all of the methods in the object that meet the following
  * criteria;
  * 
  * <ol>
  * <li>Method starts with the prefix "get" as in "getName()".</li>
  * <li>Method takes no parameters.</li>
- * <li>Method has a {@link JSONMapped} annotation.</li>
+ * <li>Method has a {@link JSON} annotation.</li>
  * </ol>
  * 
  * @author J. Chris Folsom
  * @version 2.0
  * @since 2.0
- * @see JSONMapped
+ * @see JSON
  */
 public class AnnotationReader implements FieldReader
 {
@@ -67,15 +67,15 @@ public class AnnotationReader implements FieldReader
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<MappedField> read(final Object o)
+	public List<Field> read(final Object o)
 	{
-		final List<MappedField> fields = new LinkedList<MappedField>();
+		final List<Field> fields = new LinkedList<Field>();
 
 		final Method[] methods = o.getClass().getMethods();
 
 		for (final Method m : methods)
 		{
-			if (m.getAnnotation(JSONMapped.class) != null)
+			if (m.getAnnotation(JSON.class) != null)
 			{
 				try
 				{
@@ -92,11 +92,11 @@ public class AnnotationReader implements FieldReader
 
 					fieldName.replace(0, 4, new String(first));
 
-					fields.add(new MappedField(fieldName, value));
+					fields.add(new Field(fieldName, value));
 				}
 				catch (final Exception e)
 				{
-					throw new MarshallException(e);
+					throw new SerializeException(e);
 				}
 			}
 		}

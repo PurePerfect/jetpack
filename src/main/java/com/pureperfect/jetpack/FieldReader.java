@@ -37,5 +37,5 @@ public interface FieldReader
 	 *            the object to find mapped fields for.
 	 * @return The fields on the object that are mapped.
 	 */
-	public List<MappedField> read(Object o);
+	public List<Field> read(Object o);
 }

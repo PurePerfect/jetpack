@@ -16,7 +16,7 @@
  */
 package com.pureperfect.jetpack.mock;
 
-import com.pureperfect.jetpack.json.JSONMapped;
+import com.pureperfect.jetpack.json.JSON;
 
 /**
  * 
@@ -30,13 +30,13 @@ public class NestedMappedType
 
 	private String name;
 
-	@JSONMapped
+	@JSON
 	public MockMappedType getChild()
 	{
 		return this.child;
 	}
 
-	@JSONMapped
+	@JSON
 	public String getName()
 	{
 		return this.name;

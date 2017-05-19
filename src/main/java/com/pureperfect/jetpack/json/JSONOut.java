@@ -1,18 +1,17 @@
 /*
- * Copyright [2008] PurePerfect.com
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
+ * Copyright [2008] PurePerfect.com Licensed under the Apache License, Version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License.
  * 
- * You may obtain a copy of the License at 
- * 		http://www.apache.org/licenses/LICENSE-2.0 
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * 
- * See the License for the specific language governing permissions
- * and limitations under the License. 
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.pureperfect.jetpack.json;
 
@@ -30,7 +29,7 @@ import java.util.Set;
 
 import com.pureperfect.jetpack.CharacterEscaper;
 import com.pureperfect.jetpack.FieldReader;
-import com.pureperfect.jetpack.MappedField;
+import com.pureperfect.jetpack.Field;
 import com.pureperfect.jetpack.Output;
 import com.pureperfect.jetpack.TypeConverter;
 
@@ -49,16 +48,14 @@ import com.pureperfect.jetpack.TypeConverter;
  * {@link CharacterEscaper} to make sure that any necessary formatting (e.g.
  * escaping certain characters with '\') takes place before writing to the
  * output stream.</li>
- * <li>
- * If the object is an object, it is written to the output stream between braces
- * {...} to signify an object in {@link JSONMapped}.;</li>
- * <li>
- * If the object is a {@link java.util.Map java.util.Map} it is written to the
- * output stream between braces {...} to signify an object in {@link JSONMapped}
+ * <li>If the object is an object, it is written to the output stream between
+ * braces {...} to signify an object in {@link JSON}.;</li>
+ * <li>If the object is a {@link java.util.Map java.util.Map} it is written to
+ * the output stream between braces {...} to signify an object in {@link JSON}
  * .</li>
  * <li>If the object is an instance of java.util.Collection or the object is an
  * array, it is delimited by brackets [...], to signify an array in
- * {@link JSONMapped}.</li>
+ * {@link JSON}.</li>
  * </ul>
  * 
  * @author J. Chris Folsom
@@ -112,14 +109,14 @@ public class JSONOut implements Output
 	 * {@link TypeConverter}.
 	 * 
 	 * @param out
-	 *            The writer to write {@link JSONMapped} data to.
+	 *            The writer to write {@link JSON} data to.
 	 */
 	public JSONOut(final Writer out)
 	{
 		this.out = out;
 		this.fieldReader = AnnotationReader.singleton();
 		this.typeConverter = JSONTypeConverter.defaultInstance();
-		this.characterHandler = JSONCharacterHandler.singleton();
+		this.characterHandler = JSONCharacterEscaper.singleton();
 	}
 
 	@Override
@@ -310,7 +307,17 @@ public class JSONOut implements Output
 		 */
 		else
 		{
-			final List<MappedField> fields = this.fieldReader.read(o);
+			/*
+			 * FIXME the performance could be greatly improved here by not using
+			 * field reader and instead just taking a single pass. Right now,
+			 * field reader.read requires a double-pass:
+			 * 
+			 * 1. Getting the list of fields. 2. Iterating over the list of
+			 * fields
+			 * 
+			 * A better solution would be for fieldreader to return an iterator.
+			 */
+			final List<Field> fields = this.fieldReader.read(o);
 
 			if (fields.size() > 0)
 			{
@@ -319,7 +326,7 @@ public class JSONOut implements Output
 				int i = 0;
 				final int stop = fields.size();
 
-				for (final MappedField field : fields)
+				for (final Field field : fields)
 				{
 					this.out.append('"');
 					this.out.append(field.getName());
@@ -344,7 +351,7 @@ public class JSONOut implements Output
 			{
 				/*
 				 * Fail-safe for non-mapped generic objects. The converter
-				 * should still do the best it can to cnovert the object.
+				 * should still do the best it can to convert the object.
 				 */
 				this.out.append(this.typeConverter.convert(o));
 			}

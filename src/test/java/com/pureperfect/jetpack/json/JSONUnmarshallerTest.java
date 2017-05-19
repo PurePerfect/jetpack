@@ -1,18 +1,17 @@
 /*
- * Copyright [2008] PurePerfect.com
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
+ * Copyright [2008] PurePerfect.com Licensed under the Apache License, Version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License.
  * 
- * You may obtain a copy of the License at 
- * 		http://www.apache.org/licenses/LICENSE-2.0 
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * 
- * See the License for the specific language governing permissions
- * and limitations under the License. 
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.pureperfect.jetpack.json;
 
@@ -30,7 +29,7 @@ import junit.framework.TestCase;
 
 import com.pureperfect.jetpack.Input;
 import com.pureperfect.jetpack.json.JSONArray;
-import com.pureperfect.jetpack.json.GenericJSONInput;
+import com.pureperfect.jetpack.json.JSONInput;
 import com.pureperfect.jetpack.json.JSONField;
 import com.pureperfect.jetpack.json.JSONObject;
 
@@ -62,8 +61,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -90,8 +88,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -121,8 +118,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -149,8 +145,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -180,8 +175,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -210,8 +204,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -233,8 +226,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONArray<Object> array = (JSONArray<Object>) um.read();
 
@@ -251,8 +243,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -281,8 +272,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -305,8 +295,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -328,8 +317,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -352,8 +340,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -376,8 +363,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -408,8 +394,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final JSONObject o = (JSONObject) um.read();
 
@@ -430,8 +415,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -465,8 +449,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -498,8 +481,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -541,8 +523,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -575,8 +556,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final JSONObject o = (JSONObject) um.read();
 
@@ -607,8 +587,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -631,8 +610,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -660,8 +638,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -684,8 +661,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -715,8 +691,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -739,8 +714,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -768,20 +742,19 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		try
 		{
 			um.read();
 			fail();
 		}
-		catch(NumberFormatException e)
+		catch (NumberFormatException e)
 		{
 			assertTrue(e.getMessage().contains("1234asdf56"));
 		}
 	}
-	
+
 	public void testIntegerNumberFormatExceptionInObject() throws IOException
 	{
 		final Writer myout = new OutputStreamWriter(this.out);
@@ -790,8 +763,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		try
 		{
@@ -803,8 +775,9 @@ public class JSONUnmarshallerTest extends TestCase
 			assertTrue(e.getMessage().contains("1234asdf56"));
 		}
 	}
-	
-	public void testFloatingPointNumberFormatExceptionInObject() throws IOException
+
+	public void testFloatingPointNumberFormatExceptionInObject()
+			throws IOException
 	{
 		final Writer myout = new OutputStreamWriter(this.out);
 
@@ -812,8 +785,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		try
 		{
@@ -825,8 +797,9 @@ public class JSONUnmarshallerTest extends TestCase
 			assertTrue(e.getMessage().contains("1234.asdf56"));
 		}
 	}
-	
-	public void testFloatingPointNumberFormatExceptionInArray() throws IOException
+
+	public void testFloatingPointNumberFormatExceptionInArray()
+			throws IOException
 	{
 		final Writer myout = new OutputStreamWriter(this.out);
 
@@ -834,8 +807,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		try
 		{
@@ -847,7 +819,7 @@ public class JSONUnmarshallerTest extends TestCase
 			assertTrue(e.getMessage().contains("1234.asdf56"));
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void testEmptyArray() throws IOException
 	{
@@ -856,15 +828,14 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("[ ]");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
-		
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
+
 		JSONArray<Object> object = (JSONArray<Object>) um.read();
-		
+
 		assertEquals(0, object.size());
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void testEmptyArrayInArray() throws IOException
 	{
@@ -873,22 +844,21 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("[1,2,[  ] ]");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
-		
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
+
 		JSONArray<Object> object = (JSONArray<Object>) um.read();
-		
+
 		assertEquals(3, object.size());
-		
+
 		assertEquals(1, object.get(0));
 		assertEquals(2, object.get(1));
-		
+
 		JSONArray<Object> child = (JSONArray<Object>) object.get(2);
-		
+
 		assertEquals(0, child.size());
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void testEmptyArrayInObject() throws IOException
 	{
@@ -897,27 +867,26 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("{\"one\":1,\"two\":[  ] }");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject outer = (JSONObject) um.read();
-		
+
 		assertEquals(2, outer.size());
-		
+
 		JSONField one = outer.get(0);
 		JSONField two = outer.get(1);
-		
+
 		assertEquals("one", one.getName().toString());
 		assertEquals(1, one.getValue());
-		
+
 		assertEquals("two", two.getName().toString());
-		
+
 		JSONArray<Object> arr = (JSONArray<Object>) two.getValue();
-		
+
 		assertEquals(0, arr.size());
 	}
-	
+
 	public void testEmptyObject() throws IOException
 	{
 		final Writer myout = new OutputStreamWriter(this.out);
@@ -925,15 +894,14 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("{  }");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
-		
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
+
 		JSONObject object = (JSONObject) um.read();
-		
+
 		assertEquals(0, object.size());
 	}
-	
+
 	public void testEmptyObjectInObject() throws IOException
 	{
 		final Writer myout = new OutputStreamWriter(this.out);
@@ -941,23 +909,22 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("{  \"one\" : {  }}");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
-		
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
+
 		JSONObject object = (JSONObject) um.read();
-		
+
 		assertEquals(1, object.size());
-		
+
 		JSONField field = object.get(0);
-		
+
 		assertEquals("one", field.getName().toString());
-		
+
 		JSONObject value = (JSONObject) field.getValue();
-		
+
 		assertEquals(0, value.size());
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void testWhiteSpaceAfterNumericValueInArray() throws IOException
 	{
@@ -966,22 +933,21 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("[ 1,2, {  }]");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
-		
-		JSONArray<Object> array =  (JSONArray<Object>) um.read();
-		
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
+
+		JSONArray<Object> array = (JSONArray<Object>) um.read();
+
 		assertEquals(3, array.size());
-		
+
 		assertEquals(1, array.get(0));
 		assertEquals(2, array.get(1));
-		
+
 		JSONObject obj = (JSONObject) array.get(2);
-		
+
 		assertEquals(0, obj.size());
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void testEmptyObjectInArray() throws IOException
 	{
@@ -990,19 +956,18 @@ public class JSONUnmarshallerTest extends TestCase
 		myout.write("[ 1,2, {  }]");
 
 		myout.flush();
-		
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
-		
-		JSONArray<Object> array =  (JSONArray<Object>) um.read();
-		
+
+		final Input um = new JSONInput(new InputStreamReader(this.in));
+
+		JSONArray<Object> array = (JSONArray<Object>) um.read();
+
 		assertEquals(3, array.size());
-		
+
 		assertEquals(1, array.get(0));
 		assertEquals(2, array.get(1));
-		
+
 		JSONObject obj = (JSONObject) array.get(2);
-		
+
 		assertEquals(0, obj.size());
 	}
 
@@ -1014,8 +979,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		Object o = um.read();
 
@@ -1053,8 +1017,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		Object o = um.read();
 
@@ -1100,8 +1063,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -1126,8 +1088,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final JSONObject o = (JSONObject) um.read();
 
@@ -1145,8 +1106,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		@SuppressWarnings("unchecked")
 		final JSONArray<Object> array = (JSONArray<Object>) um.read();
@@ -1177,8 +1137,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final JSONObject o = (JSONObject) um.read();
 
@@ -1207,8 +1166,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		@SuppressWarnings("unchecked")
 		final JSONArray<Object> array = (JSONArray<Object>) um.read();
@@ -1228,8 +1186,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final JSONObject obj = (JSONObject) um.read();
 
@@ -1255,8 +1212,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -1279,8 +1235,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 
@@ -1301,8 +1256,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		final Object o = um.read();
 
@@ -1325,8 +1279,7 @@ public class JSONUnmarshallerTest extends TestCase
 
 		myout.flush();
 
-		final Input um = new GenericJSONInput(new InputStreamReader(
-				this.in));
+		final Input um = new JSONInput(new InputStreamReader(this.in));
 
 		JSONObject obj = (JSONObject) um.read();
 

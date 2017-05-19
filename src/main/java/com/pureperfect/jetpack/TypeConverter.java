@@ -82,7 +82,7 @@ public interface TypeConverter
 	/**
 	 * Convert an object to a string.
 	 * 
-	 * @param b
+	 * @param o
 	 *            the value to convert
 	 * @return the resulting string.
 	 */

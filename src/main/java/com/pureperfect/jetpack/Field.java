@@ -24,7 +24,7 @@ package com.pureperfect.jetpack;
  * @version 2.0
  * @since 2.0
  */
-public class MappedField
+public class Field
 {
 	private final CharSequence name;
 
@@ -38,7 +38,7 @@ public class MappedField
 	 * @param value
 	 *            the value of the field.
 	 */
-	public MappedField(final CharSequence name, final Object value)
+	public Field(final CharSequence name, final Object value)
 	{
 		super();
 		this.name = name;

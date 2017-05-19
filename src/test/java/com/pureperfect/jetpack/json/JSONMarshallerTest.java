@@ -1,18 +1,17 @@
 /*
- * Copyright [2008] PurePerfect.com
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
+ * Copyright [2008] PurePerfect.com Licensed under the Apache License, Version
+ * 2.0 (the "License"); you may not use this file except in compliance with the
+ * License.
  * 
- * You may obtain a copy of the License at 
- * 		http://www.apache.org/licenses/LICENSE-2.0 
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
  * 
- * Unless required by applicable law or agreed to in writing, 
- * software distributed under the License is distributed on an 
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, 
- * either express or implied. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * 
- * See the License for the specific language governing permissions
- * and limitations under the License. 
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.pureperfect.jetpack.json;
 
@@ -70,8 +69,7 @@ public class JSONMarshallerTest extends TestCase
 
 		final Output jm = new JSONOut(w);
 
-		final int[] array = new int[]
-		{ 1, 2, 3 };
+		final int[] array = new int[] { 1, 2, 3 };
 
 		jm.write(array);
 
@@ -170,51 +168,29 @@ public class JSONMarshallerTest extends TestCase
 
 		jm.flush();
 
-		assertEquals('{', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('n', (char) this.in.read());
-		assertEquals('a', (char) this.in.read());
-		assertEquals('m', (char) this.in.read());
-		assertEquals('e', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', (char) this.in.read());
-		assertEquals('\"', (char) this.in.read());
-		assertEquals('r', (char) this.in.read());
-		assertEquals('b', (char) this.in.read());
-		assertEquals('"', (char) this.in.read());
-		assertEquals(',', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('i', (char) this.in.read());
-		assertEquals('d', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', (char) this.in.read());
-		assertEquals('2', (char) this.in.read());
-		assertEquals('3', (char) this.in.read());
-		assertEquals(',', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('i', (char) this.in.read());
-		assertEquals('q', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', (char) this.in.read());
-		assertEquals('n', (char) this.in.read());
-		assertEquals('u', (char) this.in.read());
-		assertEquals('l', (char) this.in.read());
-		assertEquals('l', (char) this.in.read());
-		assertEquals('}', (char) this.in.read());
+		byte[] result = new byte[31];
+
+		in.read(result);
+
+		/*
+		 * WARNING this test assumes that the fields are in a set order. It may
+		 * not work on your platform.
+		 */
+		assertEquals("{\"iq\":null,\"name\":\"rb\",\"id\":23}",
+				new String(result));
 	}
 
 	public void testNestedArray() throws IOException
 	{
 		/*
-		 * CAUTION this test assumes that the fields are in alphabetical order.
-		 * It may not work on your platform.
+		 * WARNING this test assumes that the fields are in a set order. It may
+		 * not work on your platform.
 		 */
 		final Writer w = new OutputStreamWriter(this.out);
 
 		final Output jm = new JSONOut(w);
 
-		final int[] array = new int[]
-		{ 1, 2, 3 };
+		final int[] array = new int[] { 1, 2, 3 };
 
 		final NestedArray testme = new NestedArray();
 
@@ -277,40 +253,16 @@ public class JSONMarshallerTest extends TestCase
 
 		jm.flush();
 
-		assertEquals('{', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('n', this.in.read());
-		assertEquals('a', this.in.read());
-		assertEquals('m', this.in.read());
-		assertEquals('e', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('r', this.in.read());
-		assertEquals('b', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(',', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('l', this.in.read());
-		assertEquals('i', this.in.read());
-		assertEquals('s', this.in.read());
-		assertEquals('t', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', this.in.read());
-		assertEquals('[', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('o', this.in.read());
-		assertEquals('n', this.in.read());
-		assertEquals('e', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(',', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('t', this.in.read());
-		assertEquals('w', this.in.read());
-		assertEquals('o', this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(']', this.in.read());
-		assertEquals('}', this.in.read());
+		byte[] result = new byte[34];
+
+		in.read(result);
+
+		/*
+		 * WARNING this test assumes that the fields are in a set order. It may
+		 * not work on your platform.
+		 */
+		assertEquals("{\"list\":[\"one\",\"two\"],\"name\":\"rb\"}",
+				new String(result));
 	}
 
 	public void testNestedMap() throws IOException
@@ -375,11 +327,7 @@ public class JSONMarshallerTest extends TestCase
 	public void testNestedMappedType() throws IOException
 	{
 		/*
-		 * CAUTION this test assumes that the fields are in alphabetical order.
-		 * It may not work on your platform.
-		 */
-		/*
-		 * CAUTION this test assumes that the fields are sorted in a particular
+		 * WARNING this test assumes that the fields are sorted in a particular
 		 * order. It may not work on your platform.
 		 */
 		final Writer w = new OutputStreamWriter(this.out);
@@ -396,37 +344,16 @@ public class JSONMarshallerTest extends TestCase
 
 		jm.flush();
 
-		assertEquals('{', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('n', (char) this.in.read());
-		assertEquals('a', (char) this.in.read());
-		assertEquals('m', (char) this.in.read());
-		assertEquals('e', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', (char) this.in.read());
-		assertEquals('\"', (char) this.in.read());
-		assertEquals('r', (char) this.in.read());
-		assertEquals('b', (char) this.in.read());
-		assertEquals('"', (char) this.in.read());
-		assertEquals(',', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('i', (char) this.in.read());
-		assertEquals('d', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', (char) this.in.read());
-		assertEquals('2', (char) this.in.read());
-		assertEquals('3', (char) this.in.read());
-		assertEquals(',', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals('i', (char) this.in.read());
-		assertEquals('q', (char) this.in.read());
-		assertEquals('"', this.in.read());
-		assertEquals(':', (char) this.in.read());
-		assertEquals('n', (char) this.in.read());
-		assertEquals('u', (char) this.in.read());
-		assertEquals('l', (char) this.in.read());
-		assertEquals('l', (char) this.in.read());
-		assertEquals('}', (char) this.in.read());
+		byte[] result = new byte[31];
+
+		in.read(result);
+
+		/*
+		 * WARNING this test assumes that the fields are in a set order. It may
+		 * not work on your platform.
+		 */
+		assertEquals("{\"iq\":null,\"name\":\"rb\",\"id\":23}",
+				new String(result));
 	}
 
 	public void testString() throws IOException

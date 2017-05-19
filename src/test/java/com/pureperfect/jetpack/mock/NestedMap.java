@@ -18,7 +18,7 @@ package com.pureperfect.jetpack.mock;
 
 import java.util.Map;
 
-import com.pureperfect.jetpack.json.JSONMapped;
+import com.pureperfect.jetpack.json.JSON;
 
 /**
  * 
@@ -32,13 +32,13 @@ public class NestedMap
 
 	private String name;
 
-	@JSONMapped
+	@JSON
 	public Map<String, Integer> getMap()
 	{
 		return this.map;
 	}
 
-	@JSONMapped
+	@JSON
 	public String getName()
 	{
 		return this.name;

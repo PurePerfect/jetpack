@@ -16,7 +16,7 @@
  */
 package com.pureperfect.jetpack.mock;
 
-import com.pureperfect.jetpack.json.JSONMapped;
+import com.pureperfect.jetpack.json.JSON;
 
 /**
  * 
@@ -32,19 +32,19 @@ public class MockMappedType
 
 	private String name;
 
-	@JSONMapped
+	@JSON
 	public Integer getId()
 	{
 		return this.id;
 	}
 
-	@JSONMapped
+	@JSON
 	public Integer getIq()
 	{
 		return this.iq;
 	}
 
-	@JSONMapped
+	@JSON
 	public String getName()
 	{
 		return this.name;

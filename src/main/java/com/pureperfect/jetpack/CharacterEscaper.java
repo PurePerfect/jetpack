@@ -31,7 +31,7 @@ public interface CharacterEscaper
 	/**
 	 * Perform any necessary formatting and write the results to the output.
 	 * 
-	 * @param o
+	 * @param string
 	 *            the string to write
 	 * @param out
 	 *            where to write to after formatting

@@ -33,7 +33,7 @@ import com.pureperfect.jetpack.Input;
  * @version 2.0
  * @since 2.0
  */
-public class GenericJSONInput implements Input
+public class JSONInput implements Input
 {
 	private static boolean isNull(final CharSequence cs)
 	{
@@ -51,7 +51,7 @@ public class GenericJSONInput implements Input
 	 * @param charset
 	 *            the expected character set
 	 */
-	public GenericJSONInput(final InputStream in, final Charset charset)
+	public JSONInput(final InputStream in, final Charset charset)
 	{
 		this(new InputStreamReader(in, charset));
 	}
@@ -67,7 +67,7 @@ public class GenericJSONInput implements Input
 	 * @throws UnsupportedEncodingException
 	 *             if the charset is not supported.
 	 */
-	public GenericJSONInput(final InputStream in, final String charset)
+	public JSONInput(final InputStream in, final String charset)
 			throws UnsupportedEncodingException
 	{
 		this(new InputStreamReader(in, charset));
@@ -79,7 +79,7 @@ public class GenericJSONInput implements Input
 	 * @param in
 	 *            the reader
 	 */
-	public GenericJSONInput(final Reader in)
+	public JSONInput(final Reader in)
 	{
 		if (in.markSupported())
 		{

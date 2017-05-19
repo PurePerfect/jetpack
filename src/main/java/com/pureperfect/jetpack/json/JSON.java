@@ -31,7 +31,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface JSONMapped
+public @interface JSON
 {
 	// This space intentionally left blank
 }
