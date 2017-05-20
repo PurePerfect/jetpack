@@ -37,25 +37,16 @@ import com.pureperfect.jetpack.json.JSON;
  * @since 2.0
  * @see JSON
  */
+@SuppressWarnings("rawtypes")
 public class SlightlyFasterAnnotationReader implements FieldReader
 {
 	private static final Object[] NO_ARGS = new Object[] {};
 
-	private static final SlightlyFasterAnnotationReader defaultInstance = new SlightlyFasterAnnotationReader();
+	private final Class annot;
 
-	private SlightlyFasterAnnotationReader()
+	public SlightlyFasterAnnotationReader(Class annotation)
 	{
-		// hide me
-	}
-
-	/**
-	 * Singleton.
-	 * 
-	 * @return Singleton.
-	 */
-	public static final SlightlyFasterAnnotationReader singleton()
-	{
-		return defaultInstance;
+		this.annot = annotation;
 	}
 
 	/**
@@ -69,6 +60,7 @@ public class SlightlyFasterAnnotationReader implements FieldReader
 
 	/**
 	 * Appears to provide a slight (10%?) performance boost over the original.
+	 * Performance difference should increase with objects with more fields.
 	 * 
 	 * @author J. Chris Folsom
 	 * @version 2.0.2
@@ -116,13 +108,14 @@ public class SlightlyFasterAnnotationReader implements FieldReader
 			return f;
 		}
 
+		@SuppressWarnings("unchecked")
 		private void advance()
 		{
 			for (; i < methods.length; ++i)
 			{
 				Method m = methods[i];
 
-				if (m.getDeclaredAnnotation(JSON.class) != null)
+				if (m.getDeclaredAnnotation(annot) != null)
 				{
 					try
 					{

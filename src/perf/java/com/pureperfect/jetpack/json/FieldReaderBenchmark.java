@@ -15,8 +15,8 @@ public class FieldReaderBenchmark
 	@Test
 	public void mappedFields()
 	{
-		runSimpleBenchmark(AnnotationReader.singleton());
-		runSimpleBenchmark(SlightlyFasterAnnotationReader.singleton());
+		runSimpleBenchmark(new AnnotationReader(JSON.class));
+		runSimpleBenchmark(new SlightlyFasterAnnotationReader(JSON.class));
 	}
 	
 	public void runSimpleBenchmark(FieldReader reader)
@@ -29,8 +29,6 @@ public class FieldReaderBenchmark
 		o.setIq(190);
 		o.setName("myname");
 
-		AnnotationReader r = AnnotationReader.singleton();
-
 		long cumulativeTime = 0;
 
 		for (int c = 0; c < 5; ++c)
@@ -39,7 +37,7 @@ public class FieldReaderBenchmark
 			
 			for (int i = 0; i < 500000; ++i)
 			{
-				Iterator<Field> it = r.read(o);
+				Iterator<Field> it = reader.read(o);
 
 				while (it.hasNext())
 					it.next();

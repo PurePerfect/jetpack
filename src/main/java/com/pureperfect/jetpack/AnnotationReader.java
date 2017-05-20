@@ -39,30 +39,22 @@ import com.pureperfect.jetpack.json.JSON;
  * @since 2.0
  * @see JSON
  */
+@SuppressWarnings("rawtypes")
 public class AnnotationReader implements FieldReader
 {
 	private static final Object[] NO_ARGS = new Object[] {};
 
-	private static final AnnotationReader defaultInstance = new AnnotationReader();
+	private final Class annot;
 
-	private AnnotationReader()
+	public AnnotationReader(Class annotation)
 	{
-		// hide me
-	}
-
-	/**
-	 * Singleton.
-	 * 
-	 * @return Singleton.
-	 */
-	public static final AnnotationReader singleton()
-	{
-		return defaultInstance;
+		this.annot = annotation;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Iterator<Field> read(final Object o)
 	{
@@ -72,7 +64,7 @@ public class AnnotationReader implements FieldReader
 
 		for (final Method m : methods)
 		{
-			if (m.getDeclaredAnnotation(JSON.class) != null)
+			if (m.getDeclaredAnnotation(this.annot) != null)
 			{
 				try
 				{

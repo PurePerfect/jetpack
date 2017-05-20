@@ -27,11 +27,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import com.pureperfect.jetpack.AnnotationReader;
 import com.pureperfect.jetpack.CharacterFormatter;
 import com.pureperfect.jetpack.Field;
 import com.pureperfect.jetpack.FieldReader;
 import com.pureperfect.jetpack.Output;
+import com.pureperfect.jetpack.SlightlyFasterAnnotationReader;
 import com.pureperfect.jetpack.TypeConverter;
 
 /**
@@ -115,7 +115,7 @@ public class JSONOut implements Output
 	public JSONOut(final Writer out)
 	{
 		this.out = out;
-		this.fieldReader = AnnotationReader.singleton();
+		this.fieldReader = new SlightlyFasterAnnotationReader(JSON.class);
 		this.typeConverter = JSONTypeConverter.defaultInstance();
 		this.charFormat = CharFormatter.singleton();
 	}
