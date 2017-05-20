@@ -23,13 +23,13 @@ import java.io.Writer;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.Collection;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 import com.pureperfect.jetpack.CharacterFormatter;
-import com.pureperfect.jetpack.FieldReader;
 import com.pureperfect.jetpack.Field;
+import com.pureperfect.jetpack.FieldReader;
 import com.pureperfect.jetpack.Output;
 import com.pureperfect.jetpack.TypeConverter;
 
@@ -308,27 +308,16 @@ public class JSONOut implements Output
 		 */
 		else
 		{
-			/*
-			 * FIXME the performance could be greatly improved here by not using
-			 * field reader and instead just taking a single pass. Right now,
-			 * field reader.read requires a double-pass:
-			 * 
-			 * 1. Getting the list of fields. 2. Iterating over the list of
-			 * fields
-			 * 
-			 * A better solution would be for fieldreader to return an iterator.
-			 */
-			final List<Field> fields = this.fieldReader.read(o);
+			final Iterator<Field> fields = this.fieldReader.read(o);
 
-			if (fields.size() > 0)
+			if (fields.hasNext())
 			{
 				this.out.append('{');
 
-				int i = 0;
-				final int stop = fields.size();
-
-				for (final Field field : fields)
+				while (fields.hasNext())
 				{
+					Field field = fields.next();
+
 					this.out.append('"');
 					this.out.append(field.getName());
 					this.out.append("\":");
@@ -340,7 +329,7 @@ public class JSONOut implements Output
 					 */
 					this.write(value);
 
-					if (++i < stop)
+					if (fields.hasNext())
 					{
 						this.out.append(',');
 					}

@@ -17,6 +17,7 @@
 package com.pureperfect.jetpack.json;
 
 import java.lang.reflect.Method;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class AnnotationReader implements FieldReader
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<Field> read(final Object o)
+	public Iterator<Field> read(final Object o)
 	{
 		final List<Field> fields = new LinkedList<Field>();
 
@@ -101,6 +102,6 @@ public class AnnotationReader implements FieldReader
 			}
 		}
 
-		return fields;
+		return fields.iterator();
 	}
 }

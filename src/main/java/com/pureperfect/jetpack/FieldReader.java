@@ -16,7 +16,7 @@
  */
 package com.pureperfect.jetpack;
 
-import java.util.List;
+import java.util.Iterator;
 
 /**
  * Used by an {@link Output} to indicate which fields of an object will be
@@ -37,6 +37,6 @@ public interface FieldReader
 	 *            the object to find mapped fields for.
 	 * @return The fields on the object that are mapped.
 	 */
-	public List<Field> read(Object o);
+	public Iterator<Field> read(Object o);
 }
  
