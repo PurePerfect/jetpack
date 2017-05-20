@@ -18,7 +18,7 @@ package com.pureperfect.jetpack.json;
 import java.io.IOException;
 import java.io.Writer;
 
-import com.pureperfect.jetpack.CharacterEscaper;
+import com.pureperfect.jetpack.CharacterFormatter;
 
 /**
  * Format characters before writing to the output.
@@ -27,7 +27,7 @@ import com.pureperfect.jetpack.CharacterEscaper;
  * @version 2.0
  * @since 2.0
  */
-public class JSONCharacterEscaper implements CharacterEscaper
+public class JSONCharacterEscaper implements CharacterFormatter
 {
 	private static final JSONCharacterEscaper defaultInstance = new JSONCharacterEscaper();
 

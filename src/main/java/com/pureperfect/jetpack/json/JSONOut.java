@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.pureperfect.jetpack.CharacterEscaper;
+import com.pureperfect.jetpack.CharacterFormatter;
 import com.pureperfect.jetpack.FieldReader;
 import com.pureperfect.jetpack.Field;
 import com.pureperfect.jetpack.Output;
@@ -45,7 +45,7 @@ import com.pureperfect.jetpack.TypeConverter;
  * <li>If the type is a primative type, Date or Calendar, it is converted using
  * the set {@link TypeConverter} and written to the output stream.</li>
  * <li>If the type is a string type, it is written to the output stream by the
- * {@link CharacterEscaper} to make sure that any necessary formatting (e.g.
+ * {@link CharacterFormatter} to make sure that any necessary formatting (e.g.
  * escaping certain characters with '\') takes place before writing to the
  * output stream.</li>
  * <li>If the object is an object, it is written to the output stream between
@@ -70,7 +70,7 @@ public class JSONOut implements Output
 
 	private TypeConverter typeConverter;
 
-	private CharacterEscaper characterHandler;
+	private CharacterFormatter charFormat;
 
 	/**
 	 * Create a new {@link JSONOut} using the default {@link FieldReader} and
@@ -116,7 +116,7 @@ public class JSONOut implements Output
 		this.out = out;
 		this.fieldReader = AnnotationReader.singleton();
 		this.typeConverter = JSONTypeConverter.defaultInstance();
-		this.characterHandler = JSONCharacterEscaper.singleton();
+		this.charFormat = JSONCharacterEscaper.singleton();
 	}
 
 	@Override
@@ -178,9 +178,9 @@ public class JSONOut implements Output
 	 * 
 	 * @return the current CharacterEscaper
 	 */
-	public CharacterEscaper getCharacterHandler()
+	public CharacterFormatter getCharFormat()
 	{
-		return characterHandler;
+		return charFormat;
 	}
 
 	/**
@@ -189,9 +189,9 @@ public class JSONOut implements Output
 	 * @param characterHandler
 	 *            the new CharacterEscaper
 	 */
-	public void setCharacterHandler(CharacterEscaper characterHandler)
+	public void setCharFormat(CharacterFormatter characterHandler)
 	{
-		this.characterHandler = characterHandler;
+		this.charFormat = characterHandler;
 	}
 
 	@Override
@@ -205,7 +205,7 @@ public class JSONOut implements Output
 		{
 			this.out.append('\"');
 
-			this.characterHandler.write((CharSequence) o, this.out);
+			this.charFormat.write((CharSequence) o, this.out);
 
 			this.out.append('\"');
 		}
@@ -257,6 +257,7 @@ public class JSONOut implements Output
 			int i = 0;
 			final int stop = map.size();
 
+			// FIXME convert to entry set
 			for (final Object key : keys)
 			{
 				this.out.append("\"");
@@ -350,8 +351,9 @@ public class JSONOut implements Output
 			else
 			{
 				/*
-				 * Fail-safe for non-mapped generic objects. The converter
-				 * should still do the best it can to convert the object.
+				 * It's an object, but it's not a mapped type recognized by our
+				 * mapper. The converter should still do the best it can to
+				 * convert the object.
 				 */
 				this.out.append(this.typeConverter.convert(o));
 			}

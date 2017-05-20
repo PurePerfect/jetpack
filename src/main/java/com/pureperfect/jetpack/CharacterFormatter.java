@@ -20,13 +20,13 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * Formats characters before serialization/marshalling.
+ * Performs any last formatting of characters before serialization/marshalling.
  * 
  * @author J. Chris Folsom
  * @version 2.0
  * @since 2.0
  */
-public interface CharacterEscaper
+public interface CharacterFormatter
 {
 	/**
 	 * Perform any necessary formatting and write the results to the output.
