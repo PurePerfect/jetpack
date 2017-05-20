@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import com.pureperfect.jetpack.AnnotationReader;
 import com.pureperfect.jetpack.CharacterFormatter;
 import com.pureperfect.jetpack.Field;
 import com.pureperfect.jetpack.FieldReader;

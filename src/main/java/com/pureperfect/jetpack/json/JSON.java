@@ -21,6 +21,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import com.pureperfect.jetpack.AnnotationReader;
+
 /**
  * Indicates to the {@link AnnotationReader} that this method is mapped.
  * 

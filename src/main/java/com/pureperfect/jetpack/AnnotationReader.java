@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.pureperfect.jetpack.json;
+package com.pureperfect.jetpack;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
-import com.pureperfect.jetpack.FieldReader;
-import com.pureperfect.jetpack.Field;
-import com.pureperfect.jetpack.SerializeException;
+import com.pureperfect.jetpack.json.JSON;
 
 /**
  * Checks for mapped fields on objects by looking for the {@link JSON}
@@ -68,13 +66,13 @@ public class AnnotationReader implements FieldReader
 	@Override
 	public Iterator<Field> read(final Object o)
 	{
-		final Method[] methods = o.getClass().getMethods();
+		final Method[] methods = o.getClass().getDeclaredMethods();
 
-		final List<Field> fields = new LinkedList<Field>();
-		
+		final List<Field> fields = new ArrayList<Field>(methods.length);
+
 		for (final Method m : methods)
 		{
-			if (m.getAnnotation(JSON.class) != null)
+			if (m.getDeclaredAnnotation(JSON.class) != null)
 			{
 				try
 				{
