@@ -16,8 +16,6 @@
  */
 package com.pureperfect.jetpack.mock;
 
-import java.util.Map;
-
 import com.pureperfect.jetpack.json.JSON;
 
 /**
@@ -26,16 +24,16 @@ import com.pureperfect.jetpack.json.JSON;
  * @version 2.0
  * @since 2.0
  */
-public class NestedMap
+public class NestedArrayStub
 {
-	private Map<String, Integer> map;
+	private int[] array;
 
 	private String name;
 
 	@JSON
-	public Map<String, Integer> getMap()
+	public int[] getArray()
 	{
-		return this.map;
+		return this.array;
 	}
 
 	@JSON
@@ -44,9 +42,9 @@ public class NestedMap
 		return this.name;
 	}
 
-	public void setMap(final Map<String, Integer> map)
+	public void setArray(final int[] array)
 	{
-		this.map = map;
+		this.array = array;
 	}
 
 	public void setName(final String name)

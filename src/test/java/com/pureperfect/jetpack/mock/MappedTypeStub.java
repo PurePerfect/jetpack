@@ -16,8 +16,6 @@
  */
 package com.pureperfect.jetpack.mock;
 
-import java.util.List;
-
 import com.pureperfect.jetpack.json.JSON;
 
 /**
@@ -26,16 +24,24 @@ import com.pureperfect.jetpack.json.JSON;
  * @version 2.0
  * @since 2.0
  */
-public class NestedCollection
+public class MappedTypeStub
 {
-	private List<String> list;
+	private Integer id;
+
+	private Integer iq;
 
 	private String name;
 
 	@JSON
-	public List<String> getList()
+	public Integer getId()
 	{
-		return this.list;
+		return this.id;
+	}
+
+	@JSON
+	public Integer getIq()
+	{
+		return this.iq;
 	}
 
 	@JSON
@@ -44,9 +50,14 @@ public class NestedCollection
 		return this.name;
 	}
 
-	public void setList(final List<String> list)
+	public void setId(final Integer id)
 	{
-		this.list = list;
+		this.id = id;
+	}
+
+	public void setIq(final Integer iq)
+	{
+		this.iq = iq;
 	}
 
 	public void setName(final String name)

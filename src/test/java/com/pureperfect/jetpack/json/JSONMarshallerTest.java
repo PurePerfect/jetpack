@@ -31,10 +31,10 @@ import junit.framework.TestCase;
 
 import com.pureperfect.jetpack.Output;
 import com.pureperfect.jetpack.json.JSONOut;
-import com.pureperfect.jetpack.mock.MockMappedType;
-import com.pureperfect.jetpack.mock.NestedArray;
-import com.pureperfect.jetpack.mock.NestedCollection;
-import com.pureperfect.jetpack.mock.NestedMap;
+import com.pureperfect.jetpack.mock.MappedTypeStub;
+import com.pureperfect.jetpack.mock.NestedArrayStub;
+import com.pureperfect.jetpack.mock.NestedCollectionStub;
+import com.pureperfect.jetpack.mock.NestedMapStub;
 
 /**
  * 
@@ -158,7 +158,7 @@ public class JSONMarshallerTest extends TestCase
 
 		final Output jm = new JSONOut(w);
 
-		final MockMappedType p = new MockMappedType();
+		final MappedTypeStub p = new MappedTypeStub();
 
 		p.setId(23);
 
@@ -192,7 +192,7 @@ public class JSONMarshallerTest extends TestCase
 
 		final int[] array = new int[] { 1, 2, 3 };
 
-		final NestedArray testme = new NestedArray();
+		final NestedArrayStub testme = new NestedArrayStub();
 
 		testme.setName("rb");
 		testme.setArray(array);
@@ -243,7 +243,7 @@ public class JSONMarshallerTest extends TestCase
 		list.add("one");
 		list.add("two");
 
-		final NestedCollection testme = new NestedCollection();
+		final NestedCollectionStub testme = new NestedCollectionStub();
 
 		testme.setName("rb");
 
@@ -276,7 +276,7 @@ public class JSONMarshallerTest extends TestCase
 		map.put("one", 1);
 		map.put("two", 2);
 
-		final NestedMap testme = new NestedMap();
+		final NestedMapStub testme = new NestedMapStub();
 
 		testme.setMap(map);
 		testme.setName("rb");
@@ -334,7 +334,7 @@ public class JSONMarshallerTest extends TestCase
 
 		final Output jm = new JSONOut(w);
 
-		final MockMappedType p = new MockMappedType();
+		final MappedTypeStub p = new MappedTypeStub();
 
 		p.setId(23);
 

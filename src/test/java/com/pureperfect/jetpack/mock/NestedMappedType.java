@@ -26,12 +26,12 @@ import com.pureperfect.jetpack.json.JSON;
  */
 public class NestedMappedType
 {
-	private MockMappedType child;
+	private MappedTypeStub child;
 
 	private String name;
 
 	@JSON
-	public MockMappedType getChild()
+	public MappedTypeStub getChild()
 	{
 		return this.child;
 	}
@@ -42,7 +42,7 @@ public class NestedMappedType
 		return this.name;
 	}
 
-	public void setChild(final MockMappedType child)
+	public void setChild(final MappedTypeStub child)
 	{
 		this.child = child;
 	}
