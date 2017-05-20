@@ -39,3 +39,4 @@ public interface FieldReader
 	 */
 	public List<Field> read(Object o);
 }
+ 

@@ -18,7 +18,7 @@ package com.pureperfect.jetpack;
 
 /**
  * Indicates that a field is mapped to be written to the output stream during
- * marshalling.
+ * serialization.
  * 
  * @author J. Chris Folsom
  * @version 2.0

@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * Formats characters before marshalling.
+ * Formats characters before serialization/marshalling.
  * 
  * @author J. Chris Folsom
  * @version 2.0

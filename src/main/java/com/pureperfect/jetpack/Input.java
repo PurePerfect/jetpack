@@ -19,7 +19,7 @@ package com.pureperfect.jetpack;
 import java.io.IOException;
 
 /**
- * Define unmarshallers for reading objects.
+ * Define deserializers for reading objects.
  * 
  * @author J. Chris Folsom
  * @version 2.0.1

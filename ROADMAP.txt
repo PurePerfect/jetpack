@@ -1,4 +1,3 @@
-
 Even though this is already the fastest thing out there, there are still a 
 lot of performance improvements that can be made.
 
