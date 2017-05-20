@@ -252,23 +252,23 @@ public class JSONOut implements Output
 
 			final Map map = (Map) o;
 
-			final Set keys = map.keySet();
+			@SuppressWarnings("unchecked")
+			final Set<Map.Entry<?, ?>> entries = map.entrySet();
 
 			int i = 0;
 			final int stop = map.size();
 
-			// FIXME convert to entry set
-			for (final Object key : keys)
+			for (final Map.Entry<?, ?> entry : entries)
 			{
 				this.out.append("\"");
 
 				/*
 				 * The key is converted to a string before writing.
 				 */
-				this.out.append(this.typeConverter.convert(key));
+				this.out.append(this.typeConverter.convert(entry.getKey()));
 				this.out.append("\":");
 
-				this.write(map.get(key));
+				this.write(entry.getValue());
 
 				if (++i < stop)
 				{
@@ -352,7 +352,7 @@ public class JSONOut implements Output
 			{
 				/*
 				 * It's an object, but it's not a mapped type recognized by our
-				 * mapper. The converter should still do the best it can to
+				 * FieldReader. The converter should still do the best it can to
 				 * convert the object.
 				 */
 				this.out.append(this.typeConverter.convert(o));
