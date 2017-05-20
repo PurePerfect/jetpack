@@ -27,11 +27,11 @@ import com.pureperfect.jetpack.CharacterFormatter;
  * @version 2.0
  * @since 2.0
  */
-public class JSONCharacterEscaper implements CharacterFormatter
+class CharFormatter implements CharacterFormatter
 {
-	private static final JSONCharacterEscaper defaultInstance = new JSONCharacterEscaper();
+	private static final CharFormatter defaultInstance = new CharFormatter();
 
-	private JSONCharacterEscaper()
+	private CharFormatter()
 	{
 		// hide me
 	}
@@ -41,7 +41,7 @@ public class JSONCharacterEscaper implements CharacterFormatter
 	 * 
 	 * @return Singleton
 	 */
-	public static final JSONCharacterEscaper singleton()
+	public static final CharFormatter singleton()
 	{
 		return defaultInstance;
 	}

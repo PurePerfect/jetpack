@@ -116,7 +116,7 @@ public class JSONOut implements Output
 		this.out = out;
 		this.fieldReader = AnnotationReader.singleton();
 		this.typeConverter = JSONTypeConverter.defaultInstance();
-		this.charFormat = JSONCharacterEscaper.singleton();
+		this.charFormat = CharFormatter.singleton();
 	}
 
 	@Override

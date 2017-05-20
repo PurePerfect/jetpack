@@ -29,7 +29,7 @@ import com.pureperfect.jetpack.TypeConverter;
  * @version 2.0
  * @since 2.0
  */
-public class JSONTypeConverter implements TypeConverter
+class JSONTypeConverter implements TypeConverter
 {
 	private static final JSONTypeConverter defaultInstance = new JSONTypeConverter();
 
